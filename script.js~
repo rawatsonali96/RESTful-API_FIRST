@@ -1,0 +1,49 @@
+var express=require('express');
+var mysql =require('mysql');
+var app=express();
+app.use(express.json());
+
+var connection=mysql.createConnection({
+	host:'localhost',
+	user:'root',
+	password:'',
+	database:'sampleDB'
+
+})
+
+connection.connect(function(error){
+	if (error) {
+	  console.log('error');
+	} else{
+	  //console.log('connected');
+	}
+}); 
+
+app.get('/',function(req,res){
+	 connection.query ("SELECT * from sampleTable", function(error,row,fields)
+	
+	{
+		if (error) {
+	 console.log('error in the query');
+	} else{
+	  console.log('successful query', row[0]);
+	}}
+   ) ;
+});
+
+connection.connect (function(error)
+   {
+   	if(error)
+   		console.log('error');
+   	    var sql="DELETE FROM sampleTable WHERE name='sonali'";
+   	    connection.query(sql, function(err,result)
+           {
+           	if(err) 
+           	console.log("error in deletion");
+            else
+           	console.log("Records deleted");
+           });
+   	    	});
+  
+
+app.listen(1300);

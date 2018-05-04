@@ -36,7 +36,7 @@ courses.push(course);
 res.send(course);
 });
 
-app.put('/api/course/:id',(req,res)=>{
+app.put('/api/course/:id',(req,res) => {
 const course=courses.find(c=>c.id==parseInt(req.params.id))
  if(!course) res.status(404).send('The course with the given id is not   present')
 
@@ -50,6 +50,7 @@ return;
 
 course.name=req.body.name;
 res.send(course);
+}
 });
 
 function validateCourse(course){
