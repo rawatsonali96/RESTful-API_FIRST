@@ -60,6 +60,13 @@ function validateCourse(course){
  return Joi.validate(course,schema);
 }
 
+/*test*/
+it('should return true if valid course',function(){
+  var isValid=
+   validateCourse('abc123')
+      assert.equal(isValid, true);
+});
+
 app.get('/api/courses/:id', (req,res)=>{
 const course=courses.find(c=>c.id==parseInt(req.params.id))
  if(!course) res.status(404).send('The course with the given id is not   present')
