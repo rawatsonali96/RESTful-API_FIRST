@@ -10,8 +10,24 @@ const courses=[
 {id:3,name:'courses3'},
 ];
 
+describe('Access to DB', function(){
+   describe('#fail', function(){
+        it('should return -1 because wrong credentials', function(){
+            var connection = mysql.createConnection({
+                host: 'right host',
+                user: 'wrong user',
+                password: 'wrong password',
+                database: 'right database'
+            });
+            connection.connect(function(err){
+                assert.equal(7,err.stack.indexOf("ER_ACCESS_DENIED_ERROR"));
+            });
+        });
+    })
+});
+
 app.get('/',(req,res) => {
- res.send('HELLO WORLD!!I will rock you!!')
+ res.send('HELLO WORLD!!!')
 });
 
 app.get('/api/courses',(req,res)=>{
@@ -60,12 +76,27 @@ function validateCourse(course){
  return Joi.validate(course,schema);
 }
 
+
 /*test*/
-it('should return true if valid course',function(){
-  var isValid=
-   validateCourse('abc123')
-      assert.equal(isValid, true);
+it('should return true if valid',function(done){
+  var isValid= Name({
+  	notName:'Not mike'
+  })
+  wrongSave.save(err => {
+        if(err) { return done(); }
+        throw new Error('Should generate error!');
+      });
 });
+
+ it('Should retrieve data from test database', function(done) {
+      //Look up the 'Mike' object previously saved.
+      Name.find({name: 'Mike'}, (err, name) => {
+        if(err) {throw err;}
+        if(name.length === 0) {throw new Error('No data!');}
+        done();
+      });
+    });
+  });
 
 app.get('/api/courses/:id', (req,res)=>{
 const course=courses.find(c=>c.id==parseInt(req.params.id))

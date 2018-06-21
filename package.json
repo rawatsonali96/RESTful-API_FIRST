@@ -1,12 +1,31 @@
 {
   "name": "express-demo",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mysql2": "^1.5.3",
+    "passport-openid": "^0.4.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rawatsonali96/RESTful-API_FIRST.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rawatsonali96/RESTful-API_FIRST/issues"
+  },
+  "homepage": "https://github.com/rawatsonali96/RESTful-API_FIRST#readme",
+  "description": ""
 }
