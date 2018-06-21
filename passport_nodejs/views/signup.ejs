@@ -1,0 +1,59 @@
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>signup</title>
+ </head>
+ <body>
+  <nav>
+   <ul>
+    <li><a href="/auth/login">login</a></li>
+    <li><a href="/auth/signout">sign out</a></li>
+    <li><a href="/auth/signup">sign up</a></li>
+    <li><a href="/">Homepage</a></li>
+   </ul>
+  </nav>
+  <header>
+   <h1>Enter details..</h1>
+  </header>
+  <main>
+    <form action="/signup" method="post">
+      <label for="e-mail"> E-mail</label>
+        <input type="text" name ="email">
+      <br>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="input"><br>
+      <input type="checkbox" onclick="func()"> show password
+      <script>
+        
+function func() {
+    var x = document.getElementById("input");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+} 
+
+<%/*
+        function func()
+        {
+          var x=document.getElementById("input");
+
+          if(x.type==="password")
+          {
+            x.type=="text";
+          }
+          else
+          x.type=="password";
+        }
+        */%>
+      </script>  
+
+<br><br>
+      <input type="submit" value="submit" onclick="/authenticate">
+    </form>
+    <p>Already have an account? <a href="/login">Login</a></p>
+    <p>Or go <a href="/">home</a>.</p>
+  </main>
+ </body>
+</html>
